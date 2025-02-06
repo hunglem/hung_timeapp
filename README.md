@@ -1,1 +1,1 @@
-lam not cai laram vaf timeshow ddi
+lam not cai alram vaf timeshow ddi
