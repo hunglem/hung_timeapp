@@ -25,11 +25,11 @@ public class AlarmAdapter extends ArrayAdapter<Clock> {
 
         timeTV.setText(alarm.getHour() + " : " + alarm.getMinute());
 
-        SwitchButton.setChecked(alarm.isEnabled());
-        switchButton.setOnCheckedChangeListener(buttonView, isChecked) ->{
+        switchButton.setChecked(alarm.isEnabled());
+        switchButton.setOnCheckedChangeListener((buttonView, isChecked) -> {
             Clock alarm1 = getItem(position);
             alarm1.setEnabled(isChecked);
-        };
+                 });
         return convertView;
     }
 }
