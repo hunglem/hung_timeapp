@@ -1,59 +1,116 @@
 package com.example.hung_timeapp;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ListView;
+import android.os.Handler;
+import android.provider.AlarmClock;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import java.time.Clock;
-import java.util.List;
+import java.util.Calendar;
 
 public class SetAlarm extends AppCompatActivity {
-    static final int ALARM_REQ_CODE = 0;
-    private int jam, menit;
-    private List<Clock> alarms;
-    private AlarmAdapter alarmAdapter;
-    private static final String PREFS_NAME = "AlarmPrefs";
+
+    EditText timeHour;
+    EditText timeMinute;
+    Button setTime;
+    Button setAlarm;
+    TimePickerDialog timePickerDialog;
+    Calendar calendar;
+    int currentHour;
+    int currentMinute;
 
     @Override
-    protected void onCreate(Bundle saveInstanceState) {
-
-        super.onCreate(saveInstanceState);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_alarm);
+        timeHour = findViewById(R.id.etHour);
+        timeMinute = findViewById(R.id.etMinute);
+        setTime = findViewById(R.id.btnTime);
+        setAlarm = findViewById(R.id.btnAlarm);
 
-        FloatingActionButton bTimer = findViewById(R.id.timerButton);
-        TimePicker tpAlarm = findViewById(R.id.tp);
-        ListView listView = findViewById(R.id.lvAlarms);
+        setTime.setOnClickListener((v) -> {
+            calendar = Calendar.getInstance();
+            currentHour = calendar.get(Calendar.HOUR_OF_DAY);
+            currentMinute = calendar.get(Calendar.MINUTE);
 
-        alarmAdapter = new AlarmAdapter(this,alarms);
-        ListView.setAdapter(alarmAdapter);
-        
-        tpAlarm.setOnTimeChangedListener((View, hourOfDay , minute) -> {
-            jam = hourOfDay;
-            menit = minute;
+            timePickerDialog = new TimePickerDialog(SetAlarm.this, new TimePickerDialog.OnTimeSetListener() {
+                @Override
+                public void onTimeSet(TimePicker timePicker, int hourOfDay, int minutes) {
+                    timeHour.setText(String.format("%02d", hourOfDay));
+                    timeMinute.setText(String.format("%02d", minutes));
+                }
+            }, currentHour, currentMinute, false);
+
+            timePickerDialog.show();
         });
-        bTimer.setOnClickListener(v -> {
-            Clock alarm = null;
-            alarms = new Clock(jam, menit, true);
-            alarms.add(alarm);
-            saveAlarms(alarms);
-            alarmAdapter.notifyDataSetChanged();
-            Toast.makeText(this, "Alarm Set" + jam + " : " + menit, Toast.LENGTH_SHORT).show();
-            setTimer();
-            notification();
+
+        setAlarm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!timeHour.getText().toString().isEmpty() && !timeMinute.getText().toString().isEmpty()){
+                    //-------------------------1st Alarm---------------------------------------
+                    Intent intent = new Intent(AlarmClock.ACTION_SET_ALARM);
+                    intent.putExtra(AlarmClock.EXTRA_HOUR, Integer.parseInt(timeHour.getText().toString()));
+                    intent.putExtra(AlarmClock.EXTRA_MINUTES, Integer.parseInt(timeMinute.getText().toString()));
+                    intent.putExtra(AlarmClock.EXTRA_MESSAGE, "1st Alarm");
+//--------------------------End----------------------------------------------
+
+//-------------------------2nd Alarm---------------------------------------
+                    Intent intent2 = new Intent(AlarmClock.ACTION_SET_ALARM);
+                    //If it is 7pm, simply put 19
+                    //intent2.putExtra(AlarmClock.EXTRA_HOUR, 19);
+                    intent2.putExtra(AlarmClock.EXTRA_HOUR, Integer.parseInt(timeHour.getText().toString()));
+
+                    //If it is 7:20pm, simply put 20
+                    //intent2.putExtra(AlarmClock.EXTRA_MINUTES, 20);
+                    intent2.putExtra(AlarmClock.EXTRA_MINUTES, Integer.parseInt(timeMinute.getText().toString())+5);
+
+                    intent2.putExtra(AlarmClock.EXTRA_MESSAGE, "2nd alarm");
+//--------------------------End----------------------------------------------
+
+//-------------------------3rd Alarm---------------------------------------
+                    Intent intent3 = new Intent(AlarmClock.ACTION_SET_ALARM);
+                    intent3.putExtra(AlarmClock.EXTRA_HOUR, Integer.parseInt(timeHour.getText().toString()));
+                    intent3.putExtra(AlarmClock.EXTRA_MINUTES, Integer.parseInt(timeMinute.getText().toString())+10);
+                    intent3.putExtra(AlarmClock.EXTRA_MESSAGE, "3rd alarm");
+//--------------------------End----------------------------------------------
+
+                    if(intent.resolveActivity(getPackageManager()) != null) {
+                        startActivity(intent);
+                        finish();
+
+                        final Handler handler2 = new Handler();
+                        handler2.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                startActivity(intent2);
+                                finish();
+                            }
+                        }, 300);
+
+                        final Handler handler3 = new Handler();
+                        handler3.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                startActivity(intent3);
+                                finish();
+                            }
+                        }, 700);
+
+                    }else{
+                        Toast.makeText(SetAlarm.this, "There is no app that support this action", Toast.LENGTH_SHORT).show();
+                    }
+                }else{
+                    Toast.makeText(SetAlarm.this,"Please choose a time", Toast.LENGTH_SHORT).show();
+                }
+            }
         });
-    }
-
-    private void saveAlarms(List<Clock> alarms) {
-    }
-
-    private void notification() {
-    }
-
-    private void setTimer() {
     }
 }

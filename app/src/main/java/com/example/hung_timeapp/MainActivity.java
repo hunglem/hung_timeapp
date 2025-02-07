@@ -1,11 +1,13 @@
 package com.example.hung_timeapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -18,7 +20,9 @@ public class MainActivity extends AppCompatActivity {
     Handler handler;
     SimpleDateFormat timeFormat;
     SimpleDateFormat dateFormat;
-
+    public ImageButton imageButton;    
+    
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         currenTime = findViewById(R.id.timeTextView);
         currenDate = findViewById(R.id.dateTextView);
-        fab = findViewById(R.id.allamButton);
+        
 
         timeFormat = new SimpleDateFormat("HH:mm:ss");
         dateFormat = new SimpleDateFormat("dd:MM:yyyy") ;
@@ -38,6 +42,16 @@ public class MainActivity extends AppCompatActivity {
 
         handler = new Handler();
         updateCurentTime();
+
+        imageButton = (ImageButton) findViewById(R.id.imageView);
+
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(MainActivity.this,SetAlarm.class);
+                startActivity(intent);
+            }
+        });
     }
 
         private void updateCurentTime() {
@@ -49,6 +63,9 @@ public class MainActivity extends AppCompatActivity {
         protected void onDestroy(){
             super.onDestroy();
             handler.removeCallbacksAndMessages(null);
+
+
+
     }
 
 }

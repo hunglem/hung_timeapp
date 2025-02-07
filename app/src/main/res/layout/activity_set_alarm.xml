@@ -4,37 +4,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".setAlarm">
+    tools:context=".MainActivity">
 
-    <TimePicker
-        android:id="@+id/tp"
-        android:layout_width="341dp"
-        android:layout_height="181dp"
-        android:timePickerMode="spinner"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.208" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/timerButton"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/etHour"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="172dp"
+        android:ems="10"
+        android:hint="Hour"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnAlarm"
+        android:layout_width="157dp"
+        android:layout_height="78dp"
+        android:text="Set Alarm"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.878"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tp"
-        app:layout_constraintVertical_bias="0.833" />
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/btnTime"
+        app:layout_constraintTop_toBottomOf="@+id/etMinute"
+        app:layout_constraintVertical_bias="0.356" />
 
-    <ListView
-        android:id="@+id/lvAlarms"
-        android:layout_width="425dp"
-        android:layout_height="385dp"
-        android:layout_marginStart="4dp"
+    <Button
+        android:id="@+id/btnTime"
+        android:layout_width="106dp"
+        android:layout_height="71dp"
+        android:text="Set Time"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnAlarm"
+        app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/etMinute"
+        app:layout_constraintVertical_bias="0.349" />
+
+    <EditText
+        android:id="@+id/etMinute"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:ems="10"
+        android:hint="Minute"
+        android:inputType="textPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/etHour"
+        tools:layout_editor_absoluteX="-16dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
