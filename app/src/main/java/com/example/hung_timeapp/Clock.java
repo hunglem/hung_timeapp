@@ -2,13 +2,11 @@ package com.example.hung_timeapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.os.Handler;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Handler;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -34,26 +32,20 @@ public class Clock extends AppCompatActivity {
         dateYear = findViewById(R.id.dateYear);
         digitalClock = findViewById(R.id.digitalClock);
 
-        clock1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view){
-                Intent intent = new Intent(Clock.this, MainActivity.class);
-                startActivity(intent);
-            }});
+        clock1.setOnClickListener(view -> {
+            Intent intent = new Intent(Clock.this, MainActivity.class);
+            startActivity(intent);
+        });
 
-        clock3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view){
-                Intent intent = new Intent(Clock.this, StopWatch.class);
-                startActivity(intent);
-            }});
+        clock3.setOnClickListener(view -> {
+            Intent intent = new Intent(Clock.this, StopWatch.class);
+            startActivity(intent);
+        });
 
-        clock4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view){
-                Intent intent = new Intent(Clock.this, CountDown.class);
-                startActivity(intent);
-            }});
+        clock4.setOnClickListener(view -> {
+            Intent intent = new Intent(Clock.this, CountDown.class);
+            startActivity(intent);
+        });
 
         runnable = new Runnable() {
             @Override

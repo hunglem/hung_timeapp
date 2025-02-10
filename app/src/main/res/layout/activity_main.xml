@@ -43,19 +43,20 @@
             android:src="@drawable/clock4"
             android:scaleType="fitCenter" />
     </androidx.appcompat.widget.ActionMenuView>
+
+
     <EditText
         android:id="@+id/etHour"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="220dp"
+        android:layout_width="199dp"
+        android:layout_height="106dp"
+        android:layout_marginTop="248dp"
         android:ems="10"
         android:hint="Hour"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.02"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <Button
         android:id="@+id/btnAlarm"
@@ -83,14 +84,16 @@
 
     <EditText
         android:id="@+id/etMinute"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_width="204dp"
+        android:layout_height="104dp"
+        android:layout_marginTop="148dp"
         android:ems="10"
         android:hint="Minute"
         android:inputType="textPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/etHour"
-        tools:layout_editor_absoluteX="-16dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/etHour"
+        app:layout_constraintTop_toBottomOf="@+id/menu" />
 
     <Switch
         android:id="@+id/simpleSwitch1"
@@ -117,7 +120,6 @@
         android:id="@+id/cancelalarm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="110dp"
         android:layout_marginTop="300dp"
         android:background="#009284"
         android:padding="10dp"
@@ -126,11 +128,11 @@
         android:textStyle="bold"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.372"
+        app:layout_constraintHorizontal_bias="0.457"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.186"
+        app:layout_constraintVertical_bias="0.75"
         tools:visibility="visible" />
 
 

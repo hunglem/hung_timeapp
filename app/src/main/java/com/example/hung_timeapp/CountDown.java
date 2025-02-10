@@ -33,26 +33,20 @@ public class CountDown extends AppCompatActivity {
         clock2 = findViewById(R.id.Clock2);
         clock3 = findViewById(R.id.Clock3);
 
-        clock1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view){
-                Intent intent = new Intent(CountDown.this, MainActivity.class);
-                startActivity(intent);
-            }});
+        clock1.setOnClickListener(view -> {
+            Intent intent = new Intent(CountDown.this, MainActivity.class);
+            startActivity(intent);
+        });
 
-        clock2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view){
-                Intent intent = new Intent(CountDown.this, Clock.class);
-                startActivity(intent);
-            }});
+        clock2.setOnClickListener(view -> {
+            Intent intent = new Intent(CountDown.this, Clock.class);
+            startActivity(intent);
+        });
 
-        clock3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view){
-                Intent intent = new Intent(CountDown.this, StopWatch.class);
-                startActivity(intent);
-            }});
+        clock3.setOnClickListener(view -> {
+            Intent intent = new Intent(CountDown.this, StopWatch.class);
+            startActivity(intent);
+        });
 
         start.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -2,8 +2,6 @@ package com.example.hung_timeapp;
 
 import static android.app.PendingIntent.FLAG_IMMUTABLE;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.app.TimePickerDialog;
@@ -11,7 +9,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
 import android.provider.AlarmClock;
 import android.view.View;
 import android.widget.Button;
@@ -22,10 +19,11 @@ import android.widget.Switch;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     EditText timeHour;
@@ -63,26 +61,20 @@ public class MainActivity extends AppCompatActivity {
 
         SharedPreferences.Editor editor = sp.edit();
 
-        clock2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view){
-                Intent intent = new Intent(MainActivity.this, Clock.class);
-                startActivity(intent);
-            }});
+        clock2.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, Clock.class);
+            startActivity(intent);
+        });
 
-        clock3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view){
-                Intent intent = new Intent(MainActivity.this, StopWatch.class);
-                startActivity(intent);
-            }});
+        clock3.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, StopWatch.class);
+            startActivity(intent);
+        });
 
-        clock4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view){
-                Intent intent = new Intent(MainActivity.this, CountDown.class);
-                startActivity(intent);
-            }});
+        clock4.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, CountDown.class);
+            startActivity(intent);
+        });
 
         if (statusSwitch1.equals("1")) {
             simpleSwitch1.setChecked(true);

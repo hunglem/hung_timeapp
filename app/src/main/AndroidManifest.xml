@@ -28,6 +28,11 @@
                 android:value="" />
         </activity>
 
+        <activity android:name=".CountDown"/>
+        <activity android:name=".StopWatch"/>
+        <activity android:name=".Clock"/>
+        <activity android:name=".SetAlarm"/>
+
         <receiver android:name=".AlertReceiver" />
     </application>
 

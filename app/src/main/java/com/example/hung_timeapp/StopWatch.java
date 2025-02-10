@@ -59,26 +59,20 @@ public class StopWatch extends AppCompatActivity {
 
         handler = new Handler(Looper.getMainLooper());
 
-        clock1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view){
-                Intent intent = new Intent(StopWatch.this, MainActivity.class);
-                startActivity(intent);
-            }});
+        clock1.setOnClickListener(view -> {
+            Intent intent = new Intent(StopWatch.this, MainActivity.class);
+            startActivity(intent);
+        });
 
-        clock2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view){
-                Intent intent = new Intent(StopWatch.this, Clock.class);
-                startActivity(intent);
-            }});
+        clock2.setOnClickListener(view -> {
+            Intent intent = new Intent(StopWatch.this, Clock.class);
+            startActivity(intent);
+        });
 
-        clock4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view){
-                Intent intent = new Intent(StopWatch.this, CountDown.class);
-                startActivity(intent);
-            }});
+        clock4.setOnClickListener(view -> {
+            Intent intent = new Intent(StopWatch.this, CountDown.class);
+            startActivity(intent);
+        });
 
         start.setOnClickListener(new View.OnClickListener() {
             @Override
