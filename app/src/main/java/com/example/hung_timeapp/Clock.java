@@ -8,8 +8,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.sql.Time;
-import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -48,19 +46,15 @@ public class Clock extends AppCompatActivity {
             Intent intent = new Intent(Clock.this, CountDown.class);
             startActivity(intent);
         });
-
+        
         runnable = new Runnable() {
             @Override
             public void run() {
                 String currentTime = new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date());
                 digitalClock.setText(currentTime);
-            }
-        };
-        runnable = new Runnable() {
-            @Override
-            public void run() {
                 String currentDate = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault()).format(new Date());
                 dateYear.setText(currentDate);
+                handler.postDelayed(this,100);
             }
         };
         handler.post(runnable);
