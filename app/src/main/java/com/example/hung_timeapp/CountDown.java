@@ -16,6 +16,7 @@ public class CountDown extends AppCompatActivity {
 
     private EditText countHour, countMinute, countSecond;
     private Button startButton, endtButton;
+    private TextView tvTimer;
     private CountDownTimer countDownTimer;
     private boolean isTimerRunning = false;
     private MediaPlayer mediaPlayer;
@@ -33,6 +34,7 @@ public class CountDown extends AppCompatActivity {
         countSecond = findViewById(R.id.countSecond);
         startButton = findViewById(R.id.startButton);
         endtButton = findViewById(R.id.endtButton);
+        tvTimer = findViewById(R.id.tv_timer);
         clock1 = findViewById(R.id.Clock1);
         clock2 = findViewById(R.id.Clock2);
         clock3 = findViewById(R.id.Clock3);
