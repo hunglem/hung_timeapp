@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".StopWatch">
+
+    <androidx.appcompat.widget.ActionMenuView
+        android:id="@+id/menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/Clock1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/clock1"
+            android:scaleType="fitCenter" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/Clock2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/clock2"
+            android:scaleType="fitCenter" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/Clock3"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/clock3"
+            android:scaleType="fitCenter" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/Clock4"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/clock4"
+            android:scaleType="fitCenter" />
+    </androidx.appcompat.widget.ActionMenuView>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="00:00:00"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menu"
+        app:layout_constraintVertical_bias="0.27" />
+
+    <LinearLayout
+        android:layout_width="363dp"
+        android:layout_height="190dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.889">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/startButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="128dp"
+            android:text="start"
+            app:icon="@drawable/ic_baseline_play_arrow_24" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/resetButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="128dp"
+            android:text="reset"
+            app:icon="@drawable/ic_baseline_refresh_24" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/stopButton"
+            android:layout_width="119dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="116dp"
+            android:text="stop"
+            app:icon="@drawable/ic_baseline_stop_24" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

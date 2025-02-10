@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Switch;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -36,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
     int currentHour;
     int currentMinute;
     SharedPreferences sp;
+    public ImageButton clock2;
+    public ImageButton clock3;
+    public ImageButton clock4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,11 +53,36 @@ public class MainActivity extends AppCompatActivity {
         setTime = findViewById(R.id.btnTime);
         setAlarm = findViewById(R.id.btnAlarm);
 
+        clock2 = findViewById(R.id.Clock2);
+        clock3 = findViewById(R.id.Clock3);
+        clock4 = findViewById(R.id.Clock4);
+
         Switch simpleSwitch1 = (Switch) findViewById(R.id.simpleSwitch1);
         Button cancelalarm = (Button) findViewById(R.id.cancelalarm);
         String statusSwitch1 = sp.getString("statusSwitch1", "1");
 
         SharedPreferences.Editor editor = sp.edit();
+
+        clock2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(MainActivity.this, Clock.class);
+                startActivity(intent);
+            }});
+
+        clock3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(MainActivity.this, StopWatch.class);
+                startActivity(intent);
+            }});
+
+        clock4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(MainActivity.this, CountDown.class);
+                startActivity(intent);
+            }});
 
         if (statusSwitch1.equals("1")) {
             simpleSwitch1.setChecked(true);

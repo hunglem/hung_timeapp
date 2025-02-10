@@ -1,11 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <androidx.appcompat.widget.ActionMenuView
+        android:id="@+id/menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/Clock1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/clock1"
+            android:scaleType="fitCenter" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/Clock2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/clock2"
+            android:scaleType="fitCenter" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/Clock3"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/clock3"
+            android:scaleType="fitCenter" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/Clock4"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/clock4"
+            android:scaleType="fitCenter" />
+    </androidx.appcompat.widget.ActionMenuView>
     <EditText
         android:id="@+id/etHour"
         android:layout_width="match_parent"
@@ -80,7 +117,7 @@
         android:id="@+id/cancelalarm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="110dp"
+        android:layout_marginStart="110dp"
         android:layout_marginTop="300dp"
         android:background="#009284"
         android:padding="10dp"
